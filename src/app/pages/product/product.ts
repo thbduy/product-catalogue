@@ -1,5 +1,6 @@
 import { Component, effect, inject, ChangeDetectionStrategy, computed } from '@angular/core';
 import { ProductGrid } from '../../components/product-grid/product-grid';
+import { SkeletonLoader } from '../../components/skeleton-loader/skeleton-loader';
 import { ProductService } from '../../core/services/product.service';
 import { signal } from '@angular/core';
 import { Product } from '../../core/models/product.model';
@@ -9,7 +10,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product',
-  imports: [ProductGrid, MatSelectModule, MatFormFieldModule, CommonModule],
+  imports: [ProductGrid, SkeletonLoader, MatSelectModule, MatFormFieldModule, CommonModule],
   templateUrl: './product.html',
   styleUrl: './product.scss',
   standalone: true,
@@ -22,6 +23,7 @@ export class ProductComponent {
   isLoading = signal(true);
   error = signal<string | null>(null);
   selectedCategory = signal<string | null>(null);
+  skeletonLoaders = Array(12).fill(0);
 
   categories = computed(() => {
     const uniqueCategories = Array.from(new Set(this.products().map((p) => p.category)));

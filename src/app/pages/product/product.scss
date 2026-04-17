@@ -2,6 +2,16 @@
   display: block;
 }
 
+.loading-container {
+  padding: 24px;
+}
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
 .loading,
 .error,
 .empty {

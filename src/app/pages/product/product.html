@@ -1,6 +1,21 @@
+<div class="filter-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Filter by Category</mat-label>
+    <mat-select [value]="selectedCategory()" (selectionChange)="onCategoryChange($event.value)">
+      <mat-option [value]="null">All Categories</mat-option>
+      @for (category of categories(); track category) {
+        <mat-option [value]="category">{{ category }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</div>
 @if (isLoading()) {
-  <div class="loading">
-    <p>Loading products...</p>
+  <div class="loading-container">
+    <div class="skeleton-grid">
+      @for (item of skeletonLoaders; track $index) {
+        <app-skeleton-loader />
+      }
+    </div>
   </div>
 } @else if (error()) {
   <div class="error">
@@ -11,16 +26,5 @@
     <p>No products found.</p>
   </div>
 } @else {
-  <div class="filter-container">
-    <mat-form-field appearance="outline">
-      <mat-label>Filter by Category</mat-label>
-      <mat-select [value]="selectedCategory()" (selectionChange)="onCategoryChange($event.value)">
-        <mat-option [value]="null">All Categories</mat-option>
-        @for (category of categories(); track category) {
-          <mat-option [value]="category">{{ category }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-  </div>
   <app-product-grid [products]="filteredProducts()" />
 }
