@@ -10,7 +10,13 @@
     <div class="price">
       {{ prod.price | currency }}
     </div>
-    <div class="stock" [ngClass]="{ 'low-stock': prod.inStock > 0 && prod.inStock < 5 }">
+    <div
+      class="stock"
+      [ngClass]="{
+        'low-stock': prod.inStock > 0 && prod.inStock < 5,
+        'out-of-stock-text': isOutOfStock(),
+      }"
+    >
       @if (isOutOfStock()) {
         <span>Out of Stock</span>
       } @else if (prod.inStock < 5) {
@@ -20,8 +26,4 @@
       }
     </div>
   </mat-card-content>
-
-  <mat-card-actions>
-    <button mat-raised-button color="primary" [disabled]="isOutOfStock()">Add to Cart</button>
-  </mat-card-actions>
 </mat-card>

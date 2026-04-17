@@ -1,12 +1,11 @@
 import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
 import { CurrencyPipe, NgClass } from '@angular/common';
 import { Product } from '../../core/models/product.model';
 
 @Component({
   selector: 'app-product-card',
-  imports: [MatCardModule, MatButtonModule, CurrencyPipe, NgClass],
+  imports: [MatCardModule, CurrencyPipe, NgClass],
   templateUrl: './product-card.html',
   styleUrl: './product-card.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

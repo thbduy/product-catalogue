@@ -13,7 +13,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: 'Wireless Mouse',
     price: 29.99,
     category: 'Accessories',
-    inStock: 45,
+    inStock: 0,
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: 'Mechanical Keyboard',
     price: 149.99,
     category: 'Accessories',
-    inStock: 8,
+    inStock: 1,
   },
   {
     id: 5,
@@ -41,14 +41,14 @@ export const MOCK_PRODUCTS: Product[] = [
     name: 'Webcam HD',
     price: 79.99,
     category: 'Accessories',
-    inStock: 22,
+    inStock: 3,
   },
   {
     id: 7,
     name: 'Desk Lamp LED',
     price: 49.99,
     category: 'Office',
-    inStock: 30,
+    inStock: 0,
   },
   {
     id: 8,

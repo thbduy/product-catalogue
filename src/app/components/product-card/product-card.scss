@@ -41,11 +41,9 @@ mat-card-content {
     color: #ff9800;
     font-weight: 500;
   }
-}
 
-mat-card-actions {
-  padding: 16px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
+  &.out-of-stock-text {
+    color: #ee5350;
+    font-weight: 600;
+  }
 }
