@@ -1,0 +1,37 @@
+:host {
+  display: block;
+}
+
+.loading,
+.error,
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.loading {
+  color: #1976d2;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+.empty {
+  color: #666;
+}
+
+.filter-container {
+  padding: 1.5rem;
+  background-color: var(--mat-sys-surface);
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+}
+
+mat-form-field {
+  width: 250px;
+  max-width: 100%;
+}

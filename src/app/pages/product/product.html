@@ -1,0 +1,26 @@
+@if (isLoading()) {
+  <div class="loading">
+    <p>Loading products...</p>
+  </div>
+} @else if (error()) {
+  <div class="error">
+    <p>{{ error() }}</p>
+  </div>
+} @else if (products().length === 0) {
+  <div class="empty">
+    <p>No products found.</p>
+  </div>
+} @else {
+  <div class="filter-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Filter by Category</mat-label>
+      <mat-select [value]="selectedCategory()" (selectionChange)="onCategoryChange($event.value)">
+        <mat-option [value]="null">All Categories</mat-option>
+        @for (category of categories(); track category) {
+          <mat-option [value]="category">{{ category }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <app-product-grid [products]="filteredProducts()" />
+}

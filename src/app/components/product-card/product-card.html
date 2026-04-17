@@ -1,0 +1,27 @@
+@let prod = product();
+
+<mat-card class="product-card" [class.out-of-stock]="isOutOfStock()">
+  <mat-card-header>
+    <mat-card-title>{{ prod.name }}</mat-card-title>
+    <mat-card-subtitle>{{ prod.category }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="price">
+      {{ prod.price | currency }}
+    </div>
+    <div class="stock" [ngClass]="{ 'low-stock': prod.inStock > 0 && prod.inStock < 5 }">
+      @if (isOutOfStock()) {
+        <span>Out of Stock</span>
+      } @else if (prod.inStock < 5) {
+        <span>Only {{ prod.inStock }} left!</span>
+      } @else {
+        <span>In Stock</span>
+      }
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" [disabled]="isOutOfStock()">Add to Cart</button>
+  </mat-card-actions>
+</mat-card>
